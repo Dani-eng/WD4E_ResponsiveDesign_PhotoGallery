@@ -33,7 +33,7 @@ p{
   text-align:center;
 }
 
-div img{
+/*div img{
     width:150px;
     height: 150px;
     display:block;
@@ -45,8 +45,81 @@ div{
   width: 24%;
   margin: 5px;
   padding: 2px;
+}*/
+
+/* Mobile View */
+html{
+    scroll-behavior: smooth;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+.grid figure {
+  margin: 0;
+  border: 2px solid #333;
+}
+
+.grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.grid figcaption {
+    align-items: center;
+    text-align: center;
+    color: #79abf5;
+}
+
+/* Tablet View : 772 px */
+
+@media (min-width: 772px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid figure {
+        margin: 0;
+        border: 2px solid #333;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        border-radius: 50%;
+  }
+
+   .grid figure:last-child {
+    grid-column: span 2;
+  }
+}
+
+/*Large screens : over 992px*/
+
+@media (min-width: 992px) {
+    .grid figure {
+        border-radius: 0;
+
+    }
+    .grid figure:nth-child(3n) {
+        grid-column: span 2;
+  }
+}
+
+/*Reduced motion*/
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: none;
+    }
+}
+
+/* Dark color scheme */
+@media (prefers-color-scheme: dark) {
+    .grid figure{
+        background-color: #222222;
+        color: #eef579;
+        border-color: #000000;
+    }
+}
 
 
 
